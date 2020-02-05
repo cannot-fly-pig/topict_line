@@ -1,5 +1,3 @@
-"use strict"
-
 module.export = class HandleWant{
   constructor() {
     this.required_parameter = {
@@ -29,6 +27,7 @@ module.export = class HandleWant{
   }
   async finish(bot, event, context){
     let message = {
+      type: "text",
       text: `I wanna ${context.comfirmed.type} ${context.comfirmed.word}`
     }
 
