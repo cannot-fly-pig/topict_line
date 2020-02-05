@@ -27,6 +27,6 @@ app.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       bot.replyMessage(event.replyToken,{
         type: "text",
         text: "Hello, World!",
-      })
+      }).catch()
     })
 })
