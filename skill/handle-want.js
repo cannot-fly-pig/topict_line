@@ -1,3 +1,5 @@
+"use strict"
+
 module.export = class HandleWant{
   constructor() {
     this.required_parameter = {
@@ -21,8 +23,8 @@ module.export = class HandleWant{
           "text": "What are you want?"
         }
       },
-      image: {
-      }
+     // image: {
+     // }
     }
   }
   async finish(bot, event, context){
