@@ -1,7 +1,7 @@
 module.exports = class HandleWant{
   constructor() {
     this.required_parameter = {
-      type: {
+      verb_type: {
         message_to_confirm: {
           type: "template",
           altText: "なにしたいの？",
@@ -30,7 +30,7 @@ module.exports = class HandleWant{
   async finish(bot, event, context){
     let message = {
       type: "text",
-      text: `I wanna ${context.comfirmed.type} ${context.comfirmed.word}`
+      text: `I wanna ${context.comfirmed.verb_type} ${context.comfirmed.word}`
     }
 
     await bot.reply(message)
