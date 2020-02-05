@@ -26,7 +26,7 @@ app.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
   Promise
     .all(req.body.events.map(handleEvent))
     .then((result) => res.json(result))
-}
+})
 
 async function handleEvent(event) {
   return bot.replyMessage(event.replyToken, {
