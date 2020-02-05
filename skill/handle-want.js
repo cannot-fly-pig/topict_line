@@ -1,7 +1,7 @@
 module.exports = class HandleWant{
   constructor() {
     this.required_parameter = {
-      verb_type: {
+      type: {
         message_to_confirm: {
           type: "template",
           altText: "なにしたいの？",
