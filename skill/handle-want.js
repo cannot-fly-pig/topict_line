@@ -22,7 +22,7 @@ module.exports = class HandleWant{
           type: "text",
           text: "What are you want?"
         }
-      },
+      }
      // image: {
      // }
     }
@@ -30,7 +30,7 @@ module.exports = class HandleWant{
   async finish(bot, event, context){
     let message = {
       type: "text",
-      text: `I wanna ${context.comfirmed.verb_type.data} ${context.comfirmed.word.data}`
+      text: `I wanna ${context.comfirmed.verb_type.data} ${context.comfirmed.word}`
     }
 
     await bot.reply(message)
