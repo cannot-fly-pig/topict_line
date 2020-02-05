@@ -1,95 +1,36 @@
-'use strict';
-
-module.exports = class HandlePizzaOrder {
-
-    // コンストラクター。このスキルで必要とする、または指定することができるパラメータを設定します。
-    constructor() {
-        this.required_parameter = {
-            pizza: {
-                message_to_confirm: {
-                    type: "template",
-                    altText: "ご注文のピザはお決まりでしょうか？ マルゲリータ、マリナーラからお選びください。",
-                    template: {
-                        type: "buttons",
-                        text: "ご注文のピザはお決まりでしょうか？",
-                        actions: [
-                            {type:"postback",label:"マルゲリータ",data:"マルゲリータ"},
-                            {type:"postback",label:"マリナーラ",data:"マリナーラ"}
-                        ]
-                    }
-                }
-            },
-            size: {
-                message_to_confirm: {
-                    type: "template",
-                    altText: "サイズはいかがいたしましょうか？ S、M、Lからお選びください。",
-                    template: {
-                        type: "buttons",
-                        text: "サイズはいかがいたしましょうか？",
-                        actions: [
-                            {type:"postback",label:"S",data:"S"},
-                            {type:"postback",label:"M",data:"M"},
-                            {type:"postback",label:"L",data:"L"}
-                        ]
-                    }
-                }
-            },
-            address: {
-                message_to_confirm: {
-                    type: "text",
-                    text: "お届け先の住所を教えていただけますか？"
-                }
-            },
-            name: {
-                message_to_confirm: {
-                    type: "text",
-                    text: "最後に、お客様のお名前を教えていただけますか？"
-                }
-            }
-        };
+module.exports = class HandleWant{
+  constructor() {
+    this.required_parameter = {
+      type: {
+        type: "template",
+        altText: "なにしたいの？",
+        template: {
+          type: "buttons",
+          text: "なにしたいの？",
+          actions: [
+            {type:"postback", label:"see", data:"see"},
+            {type:"postback", label:"buy", data:"buy"},
+            {type:"postback", label:"get", data:"get"},
+            {type:"postback", label:"go", data:"go"}
+          ]
+        }
+      },
+      word: {
+        massage_to_comfirm: {
+          "type": "text",
+          "text": "What are you want?"
+        }
+      },
+     // image: {
+     // }
+    }
+  }
+  async finish(bot, event, context){
+    let message = {
+      type: "text",
+      text: `I wanna ${context.comfirmed.type} ${context.comfirmed.word}`
     }
 
-    // パラメーターが全部揃ったら実行する処理を記述します。
-    async finish(bot, event, context){
-        let message = {
-            text: `${context.confirmed.name} 様、ご注文ありがとうございました！${context.confirmed.pizza}の${context.confirmed.size}サイズを30分以内にご指定の${context.confirmed.address}までお届けに上がります。`
-        };
-
-        await bot.reply(message);
-    }
-};//module.export = class HandleWant{
-//  constructor() {
-//    this.required_parameter = {
-//      type: {
-//        type: "template",
-//        altText: "なにしたいの？",
-//        template: {
-//          type: "buttons",
-//          text: "なにしたいの？",
-//          actions: [
-//            {type:"postback", label:"see", data:"see"},
-//            {type:"postback", label:"buy", data:"buy"},
-//            {type:"postback", label:"get", data:"get"},
-//            {type:"postback", label:"go", data:"go"}
-//          ]
-//        }
-//      },
-//      word: {
-//        massage_to_comfirm: {
-//          "type": "text",
-//          "text": "What are you want?"
-//        }
-//      },
-//     // image: {
-//     // }
-//    }
-//  }
-//  async finish(bot, event, context){
-//    let message = {
-//      type: "text",
-//      text: `I wanna ${context.comfirmed.type} ${context.comfirmed.word}`
-//    }
-//
-//    await bot.reply(message)
-//  }
-//}
+    await bot.reply(message)
+  }
+}
