@@ -18,7 +18,7 @@ module.exports = class HandleWant{
         }
       },
       word: {
-        massage_to_comfirm: {
+        massage_to_confirm: {
           type: "text",
           text: "What are you want?"
         }
@@ -30,7 +30,7 @@ module.exports = class HandleWant{
   async finish(bot, event, context){
     let message = {
       type: "text",
-      text: `I wanna ${context.comfirmed.verb_type} a ${context.comfirmed.word}`
+      text: `I wanna ${context.comfirned.verb_type} a ${context.confirmed.word}`
     }
 
     await bot.reply(message);
