@@ -28,12 +28,13 @@ module.exports = class HandleWant{
     }
   }
   async finish(bot, event, context){
-        let message = {
-            text: "test"
-        };
-
-        await bot.reply(message);
+    let message = {
+      type: "text",
+      text: "test"
     }
+
+    await bot.reply(message);
+  }
  // async finish(bot, event, context){
  //   let message = {
  //     type: "text",
