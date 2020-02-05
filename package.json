@@ -18,6 +18,7 @@
   "homepage": "https://github.com/cannot-fly-pig/topict_line#readme",
   "dependencies": {
     "@line/bot-sdk": "^6.8.4",
+    "bot-express": "^0.7.25",
     "express": "^4.17.1"
   }
 }

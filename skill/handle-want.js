@@ -1,0 +1,35 @@
+module.export = class HandleWant{
+  constructor() {
+    this.required_parameter = {
+      type: {
+        type: "template",
+        altText: "なにしたいの？",
+        template: {
+          type: "buttons",
+          text: "なにしたいの？",
+          actions: [
+            {type:"postback", label:"see", data:"see"},
+            {type:"postback", label:"buy", data:"buy"},
+            {type:"postback", label:"get", data:"get"},
+            {type:"postback", label:"go", data:"go"}
+          ]
+        }
+      },
+      word: {
+        massage_to_comfirm: {
+          "type": "text",
+          "text": "What are you want?"
+        }
+      },
+      image: {
+      }
+    }
+  }
+  async finish(bot, event, context){
+    let message = {
+      text: `I wanna ${context.comfirmed.type} ${context.comfirmed.word}`
+    }
+
+    await bot.reply(message)
+  }
+}
