@@ -30,7 +30,7 @@ module.exports = class HandleWant{
   async finish(bot, event, context){
     let message = {
       type: "text",
-      text: `I wanna ${context.comfirmed.verb_type} ${context.comfirmed.word}`
+      text: `I wanna ${context.comfirmed.verb_type.data} ${context.comfirmed.word.data}`
     }
 
     await bot.reply(message)
