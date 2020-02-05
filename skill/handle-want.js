@@ -20,7 +20,7 @@ module.exports = class HandleWant{
       word: {
         massage_to_confirm: {
           type: "text",
-          text: `What do you want to ${context.confirmed.verb_text}?`
+          text: `What do you want`
         }
       }
      // image: {
