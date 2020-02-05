@@ -1,0 +1,23 @@
+{
+  "name": "topict_line",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cannot-fly-pig/topict_line.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cannot-fly-pig/topict_line/issues"
+  },
+  "homepage": "https://github.com/cannot-fly-pig/topict_line#readme",
+  "dependencies": {
+    "@line/bot-sdk": "^6.8.4",
+    "express": "^4.17.1"
+  }
+}
