@@ -22,11 +22,17 @@ app.listen(process.env.PORT || 3000)
 // -----------------------------------------------------------------------------
 // ルーター設定
 app.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
-    res.sendStatus(200)
-    req.body.events.forEach( (event) => {
-      bot.replyMessage(event.replyToken,{
-        type: "text",
-        text: "Hello, World!",
-      }).catch()
-    })
+  res.sendStatus(200)
+  console.log(req.body)
+
+  Promise
+    .all(req.body.events.map(handleEvent))
+    .then((result) => res.json(result))
+}
+
+async function handleEvent(event) {
+  return bot.replyMessage(event.replyToken, {
+      type: "text",
+      text: "Hello World!",
+  });
 })
