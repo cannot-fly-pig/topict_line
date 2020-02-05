@@ -15,8 +15,6 @@ const app = express()
 const bot = new line.Client(line_config)
 
 // -----------------------------------------------------------------------------
-// Webサーバー設定
-app.listen(process.env.PORT || 3000)
 
 
 // -----------------------------------------------------------------------------
@@ -34,5 +32,8 @@ async function handleEvent(event) {
   return bot.replyMessage(event.replyToken, {
       type: "text",
       text: "Hello World!",
-  });
-})
+  })
+}
+
+// Webサーバー設定
+app.listen(process.env.PORT || 3000)
