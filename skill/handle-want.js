@@ -9,10 +9,10 @@ module.exports = class HandleWant{
             type: "buttons",
             text: "なにしたいの？",
             actions: [
-              {type:"postback", label:"see", data:"see"},
-              {type:"postback", label:"buy", data:"buy"},
-              {type:"postback", label:"get", data:"get"},
-              {type:"postback", label:"go", data:"go"}
+              {type:"message", label:"see", data:"see"},
+              {type:"message", label:"buy", data:"buy"},
+              {type:"message", label:"get", data:"get"},
+              {type:"message", label:"go", data:"go"}
             ]
           }
         }
